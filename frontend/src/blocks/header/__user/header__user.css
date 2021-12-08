@@ -1,0 +1,12 @@
+.header__user {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-right: 24px;
+}
+
+@media screen and (max-width: 425px) {
+  .header__user {
+    display: none;
+  }
+}

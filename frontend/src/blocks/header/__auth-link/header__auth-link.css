@@ -1,0 +1,20 @@
+.header__auth-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  transition: 0.3s ease-in-out;
+}
+
+.header__auth-link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+  .header__auth-link {
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 30px;
+    display: none;
+  }
+}

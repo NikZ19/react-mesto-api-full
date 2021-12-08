@@ -1,0 +1,10 @@
+.header__auth-menu {
+  display: block;
+  padding: 40px 0;
+}
+
+@media screen and (max-width: 425px) {
+  .header__auth-menu {
+    display: none;
+  }
+}

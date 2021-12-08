@@ -1,0 +1,27 @@
+.profile__about {
+  margin: 8px 0 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  max-width: 346px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__about {
+    text-align: center;
+    margin-bottom: 36px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile__about {
+    max-width: 190px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
