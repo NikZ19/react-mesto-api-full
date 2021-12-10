@@ -4,4 +4,5 @@
 ## Ссылки
 
 * Ссылка на сайт, размещенный на Яндекс.Облаке - <https://mesto.nikz.nomoredomains.rocks> 
-* Доменное имя api - <https://api.mesto.nikz.nomoredomains.rocks>
+* Ссылка на API - <https://api.mesto.nikz.nomoredomains.rocks>
+* Публичный IP-адрес сервера - <http://62.84.118.50>
