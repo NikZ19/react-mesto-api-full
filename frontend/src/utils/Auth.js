@@ -1,4 +1,4 @@
-export const baseUrl = 'https://auth.nomoreparties.co';
+export const baseUrl = 'https://api.mesto.nikz.nomoredomains.rocks';
 
 const getResponseData = (response) => {
   if (response.ok) {
@@ -47,7 +47,7 @@ export const getContent = (token) => {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      Authorization: `Bearer ${token}`
     }
   })
     .then(response => getResponseData(response))

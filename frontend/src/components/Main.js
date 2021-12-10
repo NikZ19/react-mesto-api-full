@@ -25,7 +25,7 @@ export function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, car
       </section>
       <section className="places">
         <ul className="places__items">
-          {cards.map(card => (
+          {cards.slice(0).reverse().map(card => (
             <Card
               key={card._id}
               card={card}

@@ -40,19 +40,25 @@ function App() {
           setCurrentUser(data);
         })
         .catch(err => console.log(err));
-    }
-  }, [loggedIn]);
-
-  React.useEffect(() => {
-    if (loggedIn) {
       api.getInitialCards().then(data => setCards(data))
         .catch(err => console.log(err));
     }
   }, [loggedIn]);
 
   React.useEffect(() => {
-    tokenCheck();
-  }, [loggedIn]);
+    if (localStorage.getItem('jwt')) {
+      const jwt = localStorage.getItem('jwt');
+      getContent(jwt).then(res => {
+        if (res) {
+          setLoggedIn(true);
+          setUserData(res.email);
+          history.push('/');
+        }
+      })
+        .catch(err => console.log(err));
+    }
+    // tokenCheck();
+  }, [history, loggedIn]);
 
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
@@ -96,7 +102,7 @@ function App() {
   };
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     api.likeCardToggle(card._id, isLiked).then(newCard => {
       setCards(state => state.map(c => c._id === card._id ? newCard : c));
@@ -113,24 +119,10 @@ function App() {
 
   const handleAddPlaceSubmit = (data) => {
     api.addNewCard(data).then((newCard) => {
-      setCards([newCard, ...cards]);
+      setCards([...cards, newCard]);
       setIsAddPlacePopupOpen(false);
     })
       .catch(err => console.log(err));
-  };
-
-  const tokenCheck = () => {
-    if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
-      getContent(jwt).then(res => {
-        if (res) {
-          setLoggedIn(true);
-          setUserData(res.data.email);
-          history.push('/');
-        }
-      })
-        .catch(err => console.log(err));
-    }
   };
 
   const handleLogin = (email, password) => {
